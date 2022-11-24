@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Maratona News</title>
+  <!-- AQUI IMPORTO UM ESTILO CSS PRONTO PARA VOCÊ -->
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <!-- APÓS VER ESSE BLOCO DE CÓDIGO PODE APAGAR, SÓ PRA TE MOSTRA UM EXEMPLO DE HTML QUE USA OS ESTILOS DO CSS (PRA FICAR BONITINHO ;) )-->
+  <header>
+    <h1>Maratona News</h1>
+    <div>
+      <p><strong>Ordene por: </strong>
+	{% if order_by == 'novas'%}
+	    <a href='/?order_by=popular'>Popular</a>
+	      <a href="/?order_by=novas"><strong>Novas</strong></a>
+	      
+	{% else %}
+	       <a href='/?order_by=popular'><strong>Popular</strong></a>
+	      <a href="/?order_by=novas">Novas</a>
+	{% endif %}      
+    </div>
+  </header>
+
+  <main>
+    <!-- #### -->
+    <!-- BLOCO DE CODIGO EXEMPLO DE 1 MATÉRIA -->
+      <div>
+        <div>
+		{% if order_by == 'novas'%}
+		{%for noticia in novas%}
+			<p>
+				<a href='{{noticia.id_noticia}}'>{{noticia.titulo}}</a> | <a href="{{noticia.url}}" target="_blank">({{noticia.url}})</a>
+			<p>Autor: {{noticia.autor}} | Votos: {{noticia.votos}} | Comentarios: {{noticia.comentarios}}</p>
+			
+			
+			
+			</p>
+			
+		{%endfor%}
+
+		{% else: %}
+			{%for noticia in popular%}
+			<p>	<a href='{{noticia.id_noticia}}'>{{noticia.titulo}}</a> | <a href="{{noticia.url}}" target="_blank">({{noticia.url}})</a><p>Autor: {{noticia.autor}} | Votos: {{noticia.votos}} | Comentarios: {{noticia.comentarios}}</p>
+			
+			
+			
+			</p>
+			
+		{%endfor%}
+		
+
+		{% endif%}
+	</div>
+
+      </div>
+      <hr />
+    <!-- ACABA HTML ESTUTURA DE UMA MATERIA -->
+    <!-- #### -->
+
+  </main>
+</body>
+</html>

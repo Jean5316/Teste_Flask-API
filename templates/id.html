@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Maratona News</title>
+  <!-- AQUI IMPORTO UM ESTILO CSS PRONTO PARA VOCÊ -->
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <!-- APÓS VER ESSE BLOCO DE CÓDIGO PODE APAGAR, SÓ PRA TE MOSTRA UM EXEMPLO DE HTML QUE USA OS ESTILOS DO CSS (PRA FICAR BONITINHO OS RESULTADOS ;) )-->
+  <header>
+	  <h1>{{noticia.titulo}}</h1>
+   
+    <div>
+      <p>Pontos: {{noticia.votos}} | Autor: {{noticia.autor}} | <a href="{{noticia.url}}">LINK</a></p> 
+    </div>
+  </header>
+
+  <main>
+    <!-- BLOCO DE CODIGO EXEMPLO DE 1 COMENTÁRIO -->
+      <div>          
+        {%for comentario in comentarios%}
+		<h3>{{comentario.autor}}</h3>
+	      
+	      	<p>{{comentario.texto | safe}}</p>
+	      
+	      {%endfor %}
+        
+	
+      </div>
+      <hr />
+     <!-- ACABA HTML ESTUTURA DE UM COMENTÁRIO -->
+  </main>
+
+</body>
+</html>
